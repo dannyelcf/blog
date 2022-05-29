@@ -14,7 +14,7 @@ module WebpackHelper
     end
   
     def webpack_bundle_tag(bundle)
-      javascript_include_tag(*webpack_entrypoint_paths(bundle))
+      javascript_include_tag(*webpack_entrypoint_paths(bundle), defer: "defer")
     end
   
     def webpack_preload_asset_tag(asset, options = {})
@@ -55,7 +55,7 @@ module WebpackHelper
         chunks = webpack_entrypoint_paths("default", extension: 'js')
       end
   
-      javascript_include_tag(*chunks)
+      javascript_include_tag(*chunks, defer: "defer")
     end
   
     def webpack_entrypoint_paths(source, extension: nil, exclude_duplicates: true)
