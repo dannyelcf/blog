@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= webpack_bundle_tag 'main' %>
+  </head>
+
+  <body>
+    <%= yield %>
+
+    <footer>      
+      <%= link_to "Home", root_path unless current_page?(root_path) %>
+    </footer>
+  </body>
+</html>
